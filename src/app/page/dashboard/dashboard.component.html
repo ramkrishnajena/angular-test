@@ -1,0 +1,34 @@
+<div class="container d-flex flex-column justify-content-center mt-5">
+  <form
+    class="w-50"
+    #postForm="ngForm"
+    (ngSubmit)="createReceipe(postForm.value)"
+  >
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Title</label>
+      <input type="text" name="title" class="form-control" ngModel />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Description</label>
+      <input type="text" class="form-control" name="description" ngModel />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div class="card text-start w-25 mt-5" *ngFor="let post of postList">
+    <div class="card-body">
+      <h4 class="card-title">{{ post.title }}</h4>
+      <p class="card-text">{{ post.description }}</p>
+    </div>
+    <div class="p-2 d-flex justify-content-center gap-2">
+      <button type="button" class="btn btn-primary">Edit</button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="deleteReceipe(post.id)"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

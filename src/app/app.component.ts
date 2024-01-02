@@ -1,10 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  checking(arg0: any) {
+    console.log(arg0);
+  }
   title = 'ecom';
+  logo = 'ok';
+
+  constructor(private http: HttpClient) {}
+
+  getConfig() {}
 }
